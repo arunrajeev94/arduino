@@ -15,6 +15,11 @@
             height:800px;
 
         }
+        #playbutton{
+            margin-top: 50%;
+           margin-left: 50%;
+           padding:2%;
+        }
     </style>
 </head>
 
@@ -23,7 +28,7 @@
     <model-viewer src="./assets/arduino.glb" ar ar-scale="fixed" camera-controls autoplay shadow-intensity="1"
         alt="A 3D model of an astronaut">
 
-        <button onclick="playanimation()">
+        <button id="playbutton"onclick="playanimation()">
             play
         </button>
     </model-viewer>
@@ -38,6 +43,10 @@ function playanimation() {
   else
     modelViewer.pause()
 }
+document.querySelector(".button").addEventListener('beforexrselect', (ev) => {
+    // Keep slider interactions from affecting the XR scene.
+    ev.preventDefault();
+  });
 </script>
 
 </html>
